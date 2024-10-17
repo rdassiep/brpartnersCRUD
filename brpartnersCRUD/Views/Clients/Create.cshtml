@@ -1,12 +1,12 @@
-﻿@model brpartnersCRUD.Models.Client
+﻿@model brpartnersCRUD.DTO.DTOClient
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Adicionar registro</h1>
 
-<h4>Client</h4>
+<h4>Cliente</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -26,16 +26,70 @@
                 <label asp-for="Document" class="control-label"></label>
                 <input asp-for="Document" class="form-control" />
                 <span asp-validation-for="Document" class="text-danger"></span>
-            </div>
+            </div><br />
+            <p><strong>Endereço fiscal</strong></p>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <div class="form-group">
+                <label asp-for="FiscalAddress.Street" class="control-label"></label>
+                <input asp-for="FiscalAddress.Street" class="form-control" />
+                <span asp-validation-for="FiscalAddress.Street" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                <label asp-for="FiscalAddress.Number" class="control-label"></label>
+                <input asp-for="FiscalAddress.Number" class="form-control" />
+                <span asp-validation-for="FiscalAddress.Number" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                <label asp-for="FiscalAddress.ZipCode" class="control-label"></label>
+                <input asp-for="FiscalAddress.ZipCode" class="form-control" />
+                <span asp-validation-for="FiscalAddress.ZipCode" class="text-danger"></span>
+                </div>
+            </div><br />
+            <p><strong>Endereço de cobrança</strong></p>
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="BillingAddress.Street" class="control-label"></label>
+                    <input asp-for="BillingAddress.Street" class="form-control" />
+                    <span asp-validation-for="BillingAddress.Street" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BillingAddress.Number" class="control-label"></label>
+                    <input asp-for="BillingAddress.Number" class="form-control" />
+                    <span asp-validation-for="BillingAddress.Number" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BillingAddress.ZipCode" class="control-label"></label>
+                    <input asp-for="BillingAddress.ZipCode" class="form-control" />
+                    <span asp-validation-for="BillingAddress.ZipCode" class="text-danger"></span>
+                </div>
+            </div><br />
+            <p><strong>Endereço de entrega</strong></p>
+            <div class="form-group">
+                <div class="form-group">
+                    <label asp-for="ShippingAddress.Street" class="control-label"></label>
+                    <input asp-for="ShippingAddress.Street" class="form-control" />
+                    <span asp-validation-for="ShippingAddress.Street" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ShippingAddress.Number" class="control-label"></label>
+                    <input asp-for="ShippingAddress.Number" class="form-control" />
+                    <span asp-validation-for="ShippingAddress.Number" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ShippingAddress.ZipCode" class="control-label"></label>
+                    <input asp-for="ShippingAddress.ZipCode" class="form-control" />
+                    <span asp-validation-for="ShippingAddress.ZipCode" class="text-danger"></span>
+                </div>
+            </div><br />
+            <div class="form-group">
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retornar à lista</a>
 </div>
 
 @section Scripts {

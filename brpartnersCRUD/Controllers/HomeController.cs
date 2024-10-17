@@ -15,7 +15,7 @@ namespace brpartnersCRUD.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return Redirect("../Clients/Index");
         }
 
         public IActionResult Privacy()

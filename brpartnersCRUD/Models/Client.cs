@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace brpartnersCRUD.Models
 {
@@ -25,16 +26,18 @@ namespace brpartnersCRUD.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Insira o nome do cliente!")]
+        [DisplayName("Nome do cliente")]
         public string Name { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Insira o email do cliente!")]
+        [DisplayName("Email do cliente")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "")]
-        [DisplayName("CPF/CNPJ")]
+        [Required(ErrorMessage = "Insira um CPF ou CNPJ do cliente!")]
+        [DisplayName("CPF/CNPJ do cliente")]
         public string Document { get; set; }
-       // [Required]
-        //public IList<Address> Addresses { get; private set; }
 
+        
+        public ICollection<Address> Addresses { get; set; } = new List<Address>();
 
     }
 }

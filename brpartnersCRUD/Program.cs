@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using brpartnersCRUD.Data;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<brpartnersCRUDContext>(options =>
+builder.Services.AddDbContext<BrpartnersCRUDContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("brpartnersCRUDContext") ?? throw new InvalidOperationException("Connection string 'brpartnersCRUDContext' not found.")));
 
 // Add services to the container.
@@ -15,8 +15,9 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<brpartnersCRUDContext>();
+    var context = services.GetRequiredService<BrpartnersCRUDContext>();
     context.Database.EnsureCreated(); // This will create the database if it doesn't exist
+    
 }
 
 // Configure the HTTP request pipeline.

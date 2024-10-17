@@ -1,15 +1,15 @@
-﻿@model brpartnersCRUD.Models.Client
+﻿@model brpartnersCRUD.DTO.DTOClient
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Detalhes</h1>
 
 <div>
-    <h4>Client</h4>
+    <h4>Cliente</h4>
     <hr />
-    <dl class="row">
+    @* <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -28,9 +28,82 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Document)
         </dd>
-    </dl>
+        
+    </dl> *@
+    <form>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input readonly asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email" class="control-label"></label>
+            <input readonly asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Document" class="control-label"></label>
+            <input readonly asp-for="Document" class="form-control" />
+            <span asp-validation-for="Document" class="text-danger"></span>
+        </div><br />
+        <p><strong>Endereço fiscal</strong></p>
+        <div class="form-group">
+            <div class="form-group">
+                <label asp-for="FiscalAddress.Street" class="control-label"></label>
+                <input readonly asp-for="FiscalAddress.Street" class="form-control" />
+                <span asp-validation-for="FiscalAddress.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FiscalAddress.Number" class="control-label"></label>
+                <input readonly asp-for="FiscalAddress.Number" class="form-control" />
+                <span asp-validation-for="FiscalAddress.Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FiscalAddress.ZipCode" class="control-label"></label>
+                <input readonly asp-for="FiscalAddress.ZipCode" class="form-control" />
+                <span asp-validation-for="FiscalAddress.ZipCode" class="text-danger"></span>
+            </div>
+        </div><br />
+        <p><strong>Endereço de cobrança</strong></p>
+        <div class="form-group">
+            <div class="form-group">
+                <label asp-for="BillingAddress.Street" class="control-label"></label>
+                <input readonly asp-for="BillingAddress.Street" class="form-control" />
+                <span asp-validation-for="BillingAddress.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillingAddress.Number" class="control-label"></label>
+                <input readonly asp-for="BillingAddress.Number" class="form-control" />
+                <span asp-validation-for="BillingAddress.Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BillingAddress.ZipCode" class="control-label"></label>
+                <input readonly asp-for="BillingAddress.ZipCode" class="form-control" />
+                <span asp-validation-for="BillingAddress.ZipCode" class="text-danger"></span>
+            </div>
+        </div><br />
+        <p><strong>Endereço de entrega</strong></p>
+        <div class="form-group">
+            <div class="form-group">
+                <label asp-for="ShippingAddress.Street" class="control-label"></label>
+                <input readonly asp-for="ShippingAddress.Street" class="form-control" />
+                <span asp-validation-for="ShippingAddress.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShippingAddress.Number" class="control-label"></label>
+                <input readonly asp-for="ShippingAddress.Number" class="form-control" />
+                <span asp-validation-for="ShippingAddress.Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShippingAddress.ZipCode" class="control-label"></label>
+                <input readonly asp-for="ShippingAddress.ZipCode" class="form-control" />
+                <span asp-validation-for="ShippingAddress.ZipCode" class="text-danger"></span>
+            </div>
+        </div><br />
+    </form>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+    <a asp-action="Index">Retornar à lista</a>
 </div>
